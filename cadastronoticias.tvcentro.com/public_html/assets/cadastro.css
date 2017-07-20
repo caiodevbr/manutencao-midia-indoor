@@ -1,0 +1,213 @@
+input[type=text]{
+	background-color: rgba(255,255,255,0.3);
+}
+
+select{
+	background-color: rgba(255,255,255,0.3);
+}
+
+button[type=submit]{
+	
+}
+::-webkit-input-placeholder {
+   text-align: center;
+   color: white;	
+   font-size: 1vw;
+}
+
+option{
+	color: black;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;
+   color: white;
+   font-size: 1vw;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+	text-align: center;  
+	color: white;
+    font-size: 1vw;
+}
+
+:-ms-input-placeholder {  
+    text-align: center; 
+	color: white;
+	font-size: 1vw;
+}
+
+#mainBox::-webkit-input-placeholder {
+   text-align: center;
+   line-height: 16vh;
+   color: white;	
+   font-size: 1.5vw;
+}
+
+#mainBox:-moz-placeholder { /* Firefox 18- */
+   text-align: center;
+   color: white;
+   font-size: 1vw;
+}
+
+#mainBox::-moz-placeholder {  /* Firefox 19+ */
+	text-align: center;  
+	color: white;
+    font-size: 1vw;
+}
+
+#mainBox:-ms-input-placeholder {  
+    text-align: center; 
+	color: white;
+	font-size: 1vw;
+}
+
+body{
+	background: url('../img/bg.jpg') no-repeat center center fixed; 
+	background-size: cover;
+}
+
+#logo{
+	margin: 1% auto;
+}
+
+#formulario{
+	margin: 0 auto;
+	width: 80%;	
+	height:60%;
+}
+
+#imgBox{ 
+	float: right;
+	margin-right: 3%;
+	font-family: calibri;
+	margin-top: 3%;
+	width: 45%;
+	height: 7%;
+	border: solid black 1px;
+	font-size: 1vw;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: white;
+}
+
+#tagBox{ 
+	float: left;
+	margin-left: 3%;
+	font-family: calibri;
+	margin-top: 3%;
+	width: 45%;
+	height: 7%;
+	border: solid black 1px;
+	font-size: 1vw;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: white;
+}
+
+#titleBox{ 
+	float: left;
+	margin-left: 3%;
+	font-family: calibri;
+	margin-top: 3%;
+	width: 45%;
+	height: 7%;
+	border: solid black 1px;
+	font-size: 1vw;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: white;
+}
+
+#fontBox{ 
+	float: right;
+	margin-right: 3%;
+	font-family: calibri;
+	margin-top: 3%;
+	width: 45%;
+	height: 7%;
+	border: solid black 1px;
+	font-size: 1vw;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: white;
+}
+
+#descriptionBox{ 
+	float: center;
+	margin-right: 3%;
+	font-family: calibri;
+	font-size: 110%;
+	margin-right: 3%;
+	margin-left: 3%;
+	margin-top: 3%;
+	width: 94%;
+	height: 15%;
+	border: solid black 1px;
+	font-size: 1vw;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: white;
+}
+
+#mainBox{ 
+	background-color: rgba(255,255,255,0.3);
+	float: center;
+	font-family: calibri;
+	font-size: 1vw;
+	margin-right: 3%;
+	margin-left: 3%;
+	margin-top: 3%;
+	width: 94%;
+	height: 29%;
+	border: solid black 1px;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: white;
+	text-align: justify;
+}
+
+#buttonCadastrar{
+	width: 15%;
+	height: 6%;
+	border-radius: 2px;
+	margin-top: 3%;
+	border: solid white 1px;
+	color: white;
+	background-color: rgba(255,255,255,0.1);
+	font-size: 1vw;
+}
+
+#titleChars{
+	float: left;
+	position: absolute;
+	margin: 0 auto;
+	margin-top: 9.5%;
+	margin-left: 3%;
+	color: white;
+	font-family: calibri;
+}
+
+#descChars{
+	float: left;
+	position: absolute;
+	margin: 0 auto;
+	margin-top: 0.5%;
+	margin-left: 3%;
+	color: white;
+	font-family: calibri;
+}
+
+#chars{
+	float: left;
+	position: absolute;
+	margin: 0 auto;
+	margin-top: 0.5%;
+	margin-left: 3%;
+	color: white;
+	font-family: calibri;
+}
+
+#buttonCadastrar:hover{
+     background-color: rgba(55,55,55,0.7);
+}
