@@ -3,7 +3,7 @@
 $login = $_POST['login'];
 $senha = $_POST['senha'];
 
-$conn = pg_connect('host=187.17.184.44 port=5432 dbname=noticias user=postgres');
+$conn = pg_connect('host=127.0.0.1 port=5432 dbname=noticias user=postgres');
 
 if($conn) {
     $query = "SELECT login, senha, ativo FROM usuario";
