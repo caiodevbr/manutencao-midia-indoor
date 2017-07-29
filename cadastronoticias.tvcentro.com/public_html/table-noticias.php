@@ -1,3 +1,26 @@
+<?php
+    if(isset($_GET['tagBox'])){
+        $tag = $_GET['tagBox'];
+    } else {
+        $tag = 'all';
+    }
+
+    $table = "<table id='selectable' cellspacing='4'><thead><tr id='linhaAzul'><td>#</td><td>Título da notícia</td></tr></thead><tbody>";
+
+    $conn = pg_connect("host=127.0.0.1 port=5432 dbname=noticias user=postgres password=postgres");
+
+    $query = "SELECT * FROM noticias WHERE tagBox = '$tag';";
+
+    if($query == 'all') {
+        $query = "SELECT * FROM noticias;";
+    }
+
+    $results = pg_query($conn, $query);
+    while($result = pg_fetch_array($results)) {
+        $table .= "<tr id='linhaCinza'><td>".$result['id']."</td><td>".$result['titulo']."</td></tr>";
+    }
+    echo "</tbody>".$table;
+?>
 <html>
     <head>
         <meta charset="utf-8">
@@ -10,32 +33,20 @@
         <center>
             <img id="logo" src="logos/logo.png">
         </center>
-        <table id='selectable' cellspacing='4'>
-            <thead>
-                <tr>
-                    <td>Título da notícia</td>
-                </tr>
-            </thead>
-            <tbody>
-                <?php 
-                    $conn = pg_connect("host=127.0.0.1 port=5432 dbname=noticias user=postgres");
-                    
-                    $query = null;
-                    
-                    if ($tagBox != null) {
-                        $query = "SELECT * FROM noticias WHERE '$tagBox' == tagBox";   
-                    } else {
-                        $query = "SELECT * FROM noticias";
-                    }
-                    $results = pg_query($conn, $query);
+        <form method="get">
+            <center>
+                <select id='tagBox' name='tagBox'>
+    		        <option id='saude' value='saude'>Saúde</option>
+    		        <option id='saude' value='nutricao'>Nutrição</option>
+    		        <option id='saude' value='dieta'>Dieta</option>
+    		        <option id='beleza' value='beleza'>Beleza Masculina</option>
+    		        <option id='academia' value='academia'>Academia</option>
+    		        <option selected value='all'>Todas</option>
+    		    </select>
+                <input type="submit" name="Atualizar Lista"/>
+            </center>
+        </form>
 
-                    pg_close($conn);
-
-                    foreach ($results as $result) {
-                        echo "<tr><td id='linhaCinza'>'$result['title']'</td></tr>";
-                    }
-                ?>
-            </tbody>
-        </table>
+        <div id="table"></table>
     </body>
-</html>    
+</html>

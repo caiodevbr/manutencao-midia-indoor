@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="assets/cadastro.css">
+		<link rel="stylesheet" href="assets/sweetalert2.css">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	</head>
+	<body>
+		<center>
+			<img id="logo" src="logos/logo.png">
+		</center>
+		<form id="formulario" method="post" action="adicionar-noticia.php">
+			<select id='tagBox' name='tagBox' required>
+		        <option id='saude' value='saude'>Saúde</option>
+		        <option id='saude' value='nutricao'>Nutrição</option>
+		        <option id='saude' value='dieta'>Dieta</option>
+		        <option id='beleza' value='beleza'>Beleza Masculina</option>
+		        <option id='academia' value='academia'>Academia</option>
+		        <option selected value=''>Selecione o tipo da notícia...</option>
+		    </select>
+		    <input id='imgBox' name='imgBox' type='text' value='' placeholder='URL da imagem' required/>
+		    <input name='titulo' maxlength='40' id='titleBox' type='text' value='' placeholder='Título' required/>
+		    <p id='titleChars'>Digite algo para iniciar a contagem de caracteres...</p>
+		    <input id='fontBox' name='fontBox' type='text' value='' placeholder='Fonte' required/>
+		    <input name='descricao' maxlength='60' id='descriptionBox' type='text' value='' placeholder='Descrição' required/>
+		    <p id='descChars'>Digite algo para iniciar a contagem de caracteres...</p>
+		    <textarea maxlength='370' id='mainBox' name='mainBox' type='text' value='' placeholder='Insira a notícia aqui!' required></textarea>
+		    <p id='chars'>Digite algo para iniciar a contagem de caracteres...</p>
+		    <center><input id='buttonCadastrar' type='submit'/></center>
+		</form>
+		<script src="assets/jquery-3.1.1.min.js"></script>
+		<script src="assets/sweetalert2.js"></script>
+		<script src="assets/cadastro.js" charset="utf-8"></script>
+	</body>
+</html>

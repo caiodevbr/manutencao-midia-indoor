@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="assets/cadastro.css">
+		<link rel="stylesheet" href="assets/sweetalert2.css">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	</head>
+	<body>
+		<center>
+			<img id="logo" src="logos/logo.png">
+		</center>
+        <form id="formulario" method="post" action="cadastro-user.php">
+			<center>
+				<input id='nome' placeholder='Nome Completo' value='' name='nome' required></input>
+            	<input id='nomeUsuario' placeholder='Nome de Usuário' value='' name='login' required></input>
+            	<input id='cadastroSenha' type="password" placeholder='Senha' value='' name='senha' required></input>
+            	<input id='confereSenha' type="password" placeholder='Confirme a Senha' value='' name='senha2' required></input>
+            	<button id="buttonConfirmaCadastro" type='submit'>Cadastrar</button>
+            	<button id='buttonCancela' type='button'>Cancelar</button>
+			</center>
+        </form>
+		<script src="assets/jquery-3.1.1.min.js"></script>
+		<script src="assets/sweetalert2.js"></script>
+		<script src="assets/cadastro.js" charset="utf-8"></script>
+    </body>
+</hmtl>

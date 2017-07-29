@@ -44,7 +44,7 @@ function resetInfo(opt){
     document.getElementById('chars').innerHTML = mainLength+' caracteres restantes';
 }
 
-function getSelectedOption(tagBox) {
+const option = function getSelectedOption(tagBox) {
     var conceptName;
     conceptName = $('#tagBox').find(":selected").text();
     opt = conceptName;
@@ -83,6 +83,7 @@ function getSelectedOption(tagBox) {
         document.getElementById('descChars').innerHTML = 'Selecione o tipo da notícia';
         document.getElementById('chars').innerHTML = 'Selecione o tipo da notícia';
     }
+    return opt;
 }
 
 function onStart(){
