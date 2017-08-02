@@ -1,26 +1,4 @@
-<?php
-    if(isset($_GET['tagBox'])){
-        $tag = $_GET['tagBox'];
-    } else {
-        $tag = 'all';
-    }
 
-    $table = "<table id='selectable' cellspacing='4'><thead><tr id='linhaAzul'><td>#</td><td>Título da notícia</td><td>Ações</td></tr></thead><tbody>";
-
-    $conn = pg_connect("host=127.0.0.1 port=5432 dbname=noticias user=postgres password=postgres");
-
-    $query = "SELECT * FROM noticias WHERE tagBox = '$tag'";
-
-    if($tag == 'all') {
-        $query = "SELECT * FROM noticias";
-    }
-
-    $results = pg_query($conn, $query);
-    while($result = pg_fetch_array($results)) {
-        $table .= "<tr id='linhaCinza'><td>".$result['id']."</td><td>".$result['titulo']."</td><td><button>Editar</button>  <button>Excluir</button></td></tr>";
-    }
-    echo "</tbody>".$table;
-?>
 <html>
     <head>
         <meta charset="utf-8">
@@ -43,10 +21,36 @@
     		        <option id='academia' value='academia'>Academia</option>
     		        <option selected value='all'>Todas</option>
     		    </select>
-                <button type="submit">Atualizar Lista</button>
+                <button id="buttonEntrar" type="submit">Filtrar</button>
             </center>
         </form>
 
-        <div id="table"></div>
+        <div id="table">
+
+            <?php
+                if(isset($_GET['tagBox'])){
+                    $tag = $_GET['tagBox'];
+                } else {
+                    $tag = 'all';
+                }
+
+                $table = "<table id='selectable' cellspacing='4'><thead><tr id='linhaAzul'><td>#</td><td>Título da notícia</td><td>Ações</td></tr></thead><tbody>";
+
+                $conn = pg_connect("host=127.0.0.1 port=5432 dbname=noticias user=postgres password=postgres");
+
+                $query = "SELECT * FROM noticias WHERE tagBox = '$tag'";
+
+                if($tag == 'all') {
+                    $query = "SELECT * FROM noticias";
+                }
+
+                $results = pg_query($conn, $query);
+                while($result = pg_fetch_array($results)) {
+                    $table .= "<tr id='linhaCinza'><td>".$result['id']."</td><td>".$result['titulo']."</td><td><button>Editar</button>  <button>Excluir</button></td></tr>";
+                }
+                echo "</tbody>".$table;
+            ?>
+
+        </div>
     </body>
 </html>

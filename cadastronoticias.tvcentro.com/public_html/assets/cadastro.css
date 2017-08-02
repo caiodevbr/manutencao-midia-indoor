@@ -54,7 +54,7 @@ body{
 	height: auto;
 }
 
-#buttonEntrar{
+#buttonEntrar {
 	margin: 0 auto;
 	height: 5%;
 	background-color: #6666ff;
@@ -64,6 +64,11 @@ body{
 	border-radius: 5px;
 	font-size: 110%;
 }
+
+#enviar {
+    background-color: blue;
+}
+
 
 #buttonEntrar:hover{
      background-color: #666fff;
