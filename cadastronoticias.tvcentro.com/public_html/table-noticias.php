@@ -5,19 +5,28 @@
         $tag = 'all';
     }
 
-    $table = "<table id='selectable' cellspacing='4'><thead><tr id='linhaAzul'><td>#</td><td>Título da notícia</td></tr></thead><tbody>";
+    $table = "<table id='selectable' cellspacing='4'><thead><tr id='linhaAzul'><td>#</td>" + 
+        "<td>Título da notícia</td></tr></thead><tbody>";
 
     $conn = pg_connect("host=127.0.0.1 port=5432 dbname=noticias user=postgres password=postgres");
 
-    $query = "SELECT * FROM noticias WHERE tagBox = '$tag';";
+    $query = "SELECT * FROM noticias WHERE tagBox = '$tag'";
 
     if($query == 'all') {
-        $query = "SELECT * FROM noticias;";
+        $query = "SELECT * FROM noticias";
     }
 
+    $count = 0;
+    $lineColor;
     $results = pg_query($conn, $query);
     while($result = pg_fetch_array($results)) {
-        $table .= "<tr id='linhaCinza'><td>".$result['id']."</td><td>".$result['titulo']."</td></tr>";
+        if (count % 2 == 0) {
+            $lineColor = "linhaCinza";
+        } else {
+            $lineColor = "linhaAzul";
+        }
+        $table .= "<tr id='".$lineColor."'><td>".$result['id']."</td>" + 
+            "<td>".$result['titulo']."</td><td><button>Excluir</button></td></tr>";
     }
     echo "</tbody>".$table;
 ?>
@@ -43,10 +52,10 @@
     		        <option id='academia' value='academia'>Academia</option>
     		        <option selected value='all'>Todas</option>
     		    </select>
-                <input type="submit" name="Atualizar Lista"/>
+                <button type="submit">Atualizar Lista</button>
             </center>
         </form>
 
-        <div id="table"></table>
+        <div id="table"></div>
     </body>
 </html>

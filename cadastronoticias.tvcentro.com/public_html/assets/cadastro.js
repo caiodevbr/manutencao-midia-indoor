@@ -16,16 +16,17 @@ buttonCadastraUsuario.onclick = function(){
   };
 };
 
-function atualizarTable(tagBox) {
-    var conceptName = $('#tagBox').find(":selected").text();
-    if (window.XMLHttpRequest) {
-        xmlHttp = new XMLHttpRequest();
-    }
-    xmlHttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status === 200) {
-            document.getElementById("table").innerHTML = this.responseText;
-        }
-    }
-    xmlHttp.open("GET", "table-noticias.php?tag="+str,true);
-    xmlHttp.send();
-}
+//
+//function atualizarTable(tagBox) {
+//    var conceptName = $('#tagBox').find(":selected").text();
+//    if (window.XMLHttpRequest) {
+//        xmlHttp = new XMLHttpRequest();
+//    }
+//    xmlHttp.onreadystatechange = function() {
+//        if (this.readyState == 4 && this.status === 200) {
+//            document.getElementById("table").innerHTML = this.responseText;
+//        }
+//    }
+//    xmlHttp.open("GET", "table-noticias.php?tag="+str,true);
+//    xmlHttp.send();
+//}
