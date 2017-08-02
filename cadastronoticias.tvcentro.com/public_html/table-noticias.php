@@ -5,28 +5,19 @@
         $tag = 'all';
     }
 
-    $table = "<table id='selectable' cellspacing='4'><thead><tr id='linhaAzul'><td>#</td>" + 
-        "<td>Título da notícia</td></tr></thead><tbody>";
+    $table = "<table id='selectable' cellspacing='4'><thead><tr id='linhaAzul'><td>#</td><td>Título da notícia</td><td>Ações</td></tr></thead><tbody>";
 
     $conn = pg_connect("host=127.0.0.1 port=5432 dbname=noticias user=postgres password=postgres");
 
     $query = "SELECT * FROM noticias WHERE tagBox = '$tag'";
 
-    if($query == 'all') {
+    if($tag == 'all') {
         $query = "SELECT * FROM noticias";
     }
 
-    $count = 0;
-    $lineColor;
     $results = pg_query($conn, $query);
     while($result = pg_fetch_array($results)) {
-        if (count % 2 == 0) {
-            $lineColor = "linhaCinza";
-        } else {
-            $lineColor = "linhaAzul";
-        }
-        $table .= "<tr id='".$lineColor."'><td>".$result['id']."</td>" + 
-            "<td>".$result['titulo']."</td><td><button>Excluir</button></td></tr>";
+        $table .= "<tr id='linhaCinza'><td>".$result['id']."</td><td>".$result['titulo']."</td><td><button>Editar</button>  <button>Excluir</button></td></tr>";
     }
     echo "</tbody>".$table;
 ?>
