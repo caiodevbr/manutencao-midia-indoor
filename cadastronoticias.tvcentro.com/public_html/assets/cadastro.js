@@ -16,6 +16,10 @@ buttonCadastraUsuario.onclick = function(){
   };
 };
 
+excluirUser2.onclick = function() {
+    window.location.href= "teste.php?login=miolivc";
+}
+
 //
 //function atualizarTable(tagBox) {
 //    var conceptName = $('#tagBox').find(":selected").text();
