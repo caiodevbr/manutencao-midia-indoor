@@ -28,7 +28,7 @@
         <div id="table">
 
             <?php
-                if(isset($_GET['tagBox'])){
+                if(isset($_GET['tagBox']) ){
                     $tag = $_GET['tagBox'];
                 } else {
                     $tag = 'all';
@@ -40,15 +40,17 @@
 
                 $query = "SELECT * FROM noticias WHERE tagBox = '$tag'";
 
-                if($tag == 'all') {
+                if($tag == "all"){
                     $query = "SELECT * FROM noticias";
                 }
 
                 $results = pg_query($conn, $query);
                 while($result = pg_fetch_array($results)) {
-                    $table .= "<tr id='linhaCinza'><td>".$result['id']."</td><td>".$result['titulo']."</td><td><button>Editar</button>  <button>Excluir</button></td></tr>";
+                    $table .= "<tr id='linhaCinza'><td>".$result['id']."</td><td>".$result['titulo'];
+                    $table .= "<td><a href='excluir.php?id=".$result['id']."'>Excluir</a></td></tr>";
+                    // $table .="</td><td><button>Editar</button>  <button>Excluir</button></td></tr>";
                 }
-                echo "</tbody>".$table;
+                echo "</tbody></table>".$table;
             ?>
 
         </div>

@@ -65,11 +65,6 @@ body{
 	font-size: 110%;
 }
 
-#enviar {
-    background-color: blue;
-}
-
-
 #buttonEntrar:hover{
      background-color: #666fff;
 }

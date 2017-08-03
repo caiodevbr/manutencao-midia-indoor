@@ -15,14 +15,14 @@ if($conn) {
     }
     $insert = pg_query($conn, $query);
     pg_close($conn);
-    if ($insert != null) {
+    if ($insert) {
         header("Refresh:5; url=index.html");
-		echo '<link rel="stylesheet" href="assets/sweetalert2.css">';
-		echo '<script src="assets/jquery-3.1.1.min.js"></script>';
-		echo '<script src="assets/sweetalert2.js"></script>';
-		echo '<script type="text/javascript">';
-		echo 'setTimeout(function () {swal("Sucesso!", "As informações foram inseridas com sucesso!", "success")});';
-		echo '</script>';
+		// echo '<link rel="stylesheet" href="assets/sweetalert2.css">';
+		// echo '<script src="assets/jquery-3.1.1.min.js"></script>';
+		// echo '<script src="assets/sweetalert2.js"></script>';
+		// echo '<script type="text/javascript">';
+		// echo 'setTimeout(function () {swal("Sucesso!", "As informações foram inseridas com sucesso!", "success")});';
+		// echo '</script>';
     } else {
         header("Refresh:5; url=erro.html");
     }

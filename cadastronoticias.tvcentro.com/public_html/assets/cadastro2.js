@@ -1,25 +1,25 @@
-buttonAdd.onclick= function(){
-    swal("Preste atenção", "Antes de preencher os campos, selecione um tipo de noticia válido.", "info");
-    document.getElementById('formulario').innerHTML = "<select id='tagBox' name='tagBox' onchange='getSelectedOption()' required>"+
-        "<option id='saude' value='saude'>Saúde</option>"+
-        "<option id='saude' value='nutricao'>Nutrição</option>"+
-        "<option id='saude' value='dieta'>Dieta</option>"+
-        "<option id='beleza' value='beleza'>Beleza Masculina</option>"+
-        "<option id='academia' value='academia'>Academia</option>"+
-        "<option selected value=''>Selecione o tipo da notícia...</option>"+
-    "</select>"+
-    "<input id='imgBox' name='imgBox' type='text' value='' placeholder='URL da imagem' required/>"+
-    "<input name='titulo' maxlength='40' id='titleBox' type='text' value='' placeholder='Título' required/>"+
-    "<p id='titleChars'>Digite algo para iniciar a contagem de caracteres...</p>"+
-    "<input id='fontBox' name='fontBox' type='text' value='' placeholder='Fonte' required/>"+
-    "<input name='descricao' maxlength='60' id='descriptionBox' type='text' value='' placeholder='Descrição' required/>"+
-    "<p id='descChars'>Digite algo para iniciar a contagem de caracteres...</p>"+
-    "<textarea maxlength='370' id='mainBox' name='mainBox' type='text' value='' placeholder='Insira a notícia aqui!' required></textarea>"+
-    "<p id='chars'>Digite algo para iniciar a contagem de caracteres...</p>"+
-    "<center><input id='buttonCadastrar' type='submit'/></center>";
-    document.getElementById('buttonCadastrar').disabled = true;
-    onStart();
-};
+// buttonAdd.onclick= function(){
+//     swal("Preste atenção", "Antes de preencher os campos, selecione um tipo de noticia válido.", "info");
+//     document.getElementById('formulario').innerHTML = "<select id='tagBox' name='tagBox' onchange='getSelectedOption()' required>"+
+//         "<option id='saude' value='saude'>Saúde</option>"+
+//         "<option id='saude' value='nutricao'>Nutrição</option>"+
+//         "<option id='saude' value='dieta'>Dieta</option>"+
+//         "<option id='beleza' value='beleza'>Beleza Masculina</option>"+
+//         "<option id='academia' value='academia'>Academia</option>"+
+//         "<option selected value=''>Selecione o tipo da notícia...</option>"+
+//     "</select>"+
+//     "<input id='imgBox' name='imgBox' type='text' value='' placeholder='URL da imagem' required/>"+
+//     "<input name='titulo' maxlength='40' id='titleBox' type='text' value='' placeholder='Título' required/>"+
+//     "<p id='titleChars'>Digite algo para iniciar a contagem de caracteres...</p>"+
+//     "<input id='fontBox' name='fontBox' type='text' value='' placeholder='Fonte' required/>"+
+//     "<input name='descricao' maxlength='60' id='descriptionBox' type='text' value='' placeholder='Descrição' required/>"+
+//     "<p id='descChars'>Digite algo para iniciar a contagem de caracteres...</p>"+
+//     "<textarea maxlength='370' id='mainBox' name='mainBox' type='text' value='' placeholder='Insira a notícia aqui!' required></textarea>"+
+//     "<p id='chars'>Digite algo para iniciar a contagem de caracteres...</p>"+
+//     "<center><input id='buttonCadastrar' type='submit'/></center>";
+//     document.getElementById('buttonCadastrar').disabled = true;
+//     onStart();
+// };
 
 var mainLength;
 var descLength;
