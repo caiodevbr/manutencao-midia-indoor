@@ -27,4 +27,16 @@ class NoticiaDao {
         return isset($result);
     }
     
+    public function remove(Noticia $noticia) {
+        $query = "DELETE FROM NOTICIA WHERE ID = '{$noticia->getId()}'";
+        $result = pg_query($conn, $query);
+        return isset($result);
+    }
+    
+    public function lista() {
+        $query = "SELECT * FROM NOTICIA";
+        $results = pg_query($conn, $query);
+        return $results;
+    }
+    
 }
