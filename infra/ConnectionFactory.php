@@ -12,7 +12,7 @@ class ConnectionFactory {
     private $password = "";
     
     public static function getConnection() {
-        $connection_string = "host='$host' port='$port' user='$user'";
+        $connection_string = "host='{$host}' port='{$port}' user='{$user}'";
         $conn = pg_connect($connection_string);
         return $conn;
     }

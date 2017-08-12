@@ -34,9 +34,23 @@ class NoticiaDao {
     }
     
     public function lista() {
+        $list = array();
         $query = "SELECT * FROM NOTICIA";
-        $results = pg_query($conn, $query);
-        return $results;
+        $result = pg_query($conn, $query);
+        if(! $result) {
+            while ($row = pg_fetch_array($result)) {
+                $noticia = new Noticia();
+                $noticia->setId($row['id']);
+                $noticia->setTag($row['tagBox']);
+                $noticia->getFont($row['fontBox']);
+                $noticia->getImage($row['imgBox']);
+                $noticia->getTitle($row['titulo']);
+                $noticia->getDescricao($row['descricao']);
+                $noticia->getText($row['mainBox']);
+                $list[] = $noticia;
+            }
+        }
+        return $list;
     }
     
 }
