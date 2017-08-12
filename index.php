@@ -10,6 +10,12 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <h1>hello</h1>
+        <h1>Login</h1>
+        <form method="post" action="'<?php $login = new LoginController(); $login->login(); ?>'">
+            <input type="text" name="login" placeholder="Digite seu login"/>
+            <input type="password" name="senha" placeholder="Digite sua senha"/>
+            <button type="submit">Entrar</button>
+            <button type="reset">Limpar</button>
+        </form>
     </body>
 </html>
