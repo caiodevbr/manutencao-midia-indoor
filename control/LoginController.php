@@ -6,11 +6,9 @@
  * and open the template in the editor.
  */
 
-/**
- * Description of LoginController
- *
- * @author miolivc
- */
+// include ("../model/Usuario.php");
+include ("../infra/UsuarioDao.php");
+
 class LoginController {
     private $usuario;
     private $usuarioDao;
@@ -18,23 +16,37 @@ class LoginController {
     public function __construct() {
         $this->usuario = NULL;
         $this->usuarioDao = new UsuarioDao();
+
+        if($_POST['acao'] == "login") {
+            $this->login();
+        } else if ($_POST['acao'] == "logout") {
+            $this->logout();
+        }
     }
     
     public function login() {
         $login = $_POST['login'];
         $senha = $_POST['senha'];
         $this->usuario = $this->usuarioDao->find($login);
-        if ($this->usuario->getSenha() == $senha && $this->usuario->getAtivo()) {
+        // eSSE TRECHO TALVEZ NAO ESTEJA EXECUTANDO
+        if (($this->usuario->getSenha() == $senha) && ($this->usuario->getAtivo())) {
+            echo "Entrou ne";
             session_start();
             $_SESSION['usuario'] = $this->usuario->getNome();
-            header("home.php");
+            header("Location:../view/home.php");
+        } else {
+            header("Location:../../index.php");
         }
+        
     }
     
     public function logout() {
         unset($_SESSION['usuario']);
         session_destroy();
-        header("index.php");
+        header("Location:../../index.php");
     }
     
 }
+
+new LoginController();
+?>

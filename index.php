@@ -11,9 +11,8 @@ and open the template in the editor.
     </head>
     <body>
         <h1>Login</h1>
-        <form method="post" action="<?php 
-                $login = new LoginController(); 
-                $login->login(); ?>">
+        <form method="post" action="control/LoginController.php">
+            <input type="hidden" name="acao" value="login">
             <input type="text" name="login" placeholder="Digite seu login"/>
             <input type="password" name="senha" placeholder="Digite sua senha"/>
             <button type="submit">Entrar</button>

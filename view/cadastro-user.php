@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include("control/UsuarioController.php"); ?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -6,7 +7,7 @@
     </head>
     <body>
         <h1>Login</h1>
-        <form method="post" action="<?php 
+            <form method="post" action="<?php
                     $usuarioController = new UsuarioController();
                     $usuarioController->addUsuario(); ?>">
             <input type="text" name="nome" placeholder="Digite seu nome"/>

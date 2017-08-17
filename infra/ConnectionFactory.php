@@ -6,15 +6,15 @@
  * @author miolivc
  */
 class ConnectionFactory {
-    private $host = "localhost";
-    private $port = "5432";
+    private $host = "127.0.0.1";
+    private $port = 5432;
     private $user = "postgres";
-    private $password = "";
+    private $password = "postgres";
+    private $dbname = "noticias";
     
     public static function getConnection() {
-        $connection_string = "host='{$host}' port='{$port}' user='{$user}'";
-        $conn = pg_connect($connection_string);
-        return $conn;
+        $connection_string = "host=127.0.0.1 port=5432 dbname=noticias user=postgres password=postgres";
+        return pg_connect($connection_string);
     }
     
 }

@@ -12,6 +12,8 @@
  * @author miolivc
  */
 
+include("ConnectionFactory.php");
+
 class NoticiaDao {
     private $conn;
 
@@ -20,9 +22,9 @@ class NoticiaDao {
     }
     
     public function add(Noticia $noticia) {
-        $query = "INSERT INTO NOTICIA(TAGBOX, IMGBOX, TITULO, FONTBOX, DESCRICAO, MAINBOX, INSERCAO)"
+        $query = "INSERT INTO NOTICIA(TAGBOX, IMGBOX, TITULO, FONTBOX, DESCRICAO, MAINBOX)"
                 . " VALUES ('{$noticia->getTag()}','{$noticia->getImage()}', '{$noticia->getTitle()}',"
-                . "'{$noticia->getFont()}', '{$noticia->getDescricao()}','{$noticia->getText()}', '{now()}')";
+                . "'{$noticia->getFont()}', '{$noticia->getDescricao()}','{$noticia->getText()}')";
         $result = pg_query($conn, $query);
         return isset($result);
     }
@@ -30,8 +32,8 @@ class NoticiaDao {
     public function edit(Noticia $noticia) {
         $query = "UPDATE NOTICIA SET TAGBOX = '{$noticia->getTag()}' IMGBOX = '{$noticia->getImage()}' "
                 . "TITULO = '{$noticia->getTitle()}' FONTBOX = '{$noticia->getFont()}'"
-                . " DESCRICAO = '{$noticia->getDescricao()}' MAINBOX = '{$noticia->getText()}',"
-                . " INSERCAO = now()) WHERE ID = '{$noticia->getId()}'";
+                . " DESCRICAO = '{$noticia->getDescricao()}' MAINBOX = '{$noticia->getText()}') " 
+                . "WHERE ID = '{$noticia->getId()}'";
         $result = pg_query($conn, $query);
         return isset($result);
     }

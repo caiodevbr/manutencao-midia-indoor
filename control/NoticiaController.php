@@ -5,6 +5,9 @@
  *
  * @author miolivc
  */
+include("model/Noticia.php");
+include("infra/NoticiaDao.php");
+
 class NoticiaController {
     private $noticia;
     private $noticiaDao;

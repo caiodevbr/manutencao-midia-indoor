@@ -11,6 +11,9 @@
  *
  * @author miolivc
  */
+
+include_once("../infra/UsuarioDao.php");
+
 class UsuarioController {
     private $usuario;
     private $usuarioDao;
@@ -24,7 +27,7 @@ class UsuarioController {
         $login = $_POST['login'];
         $senha = $_POST['senha'];
         $nome = $_POST['nome'];
-        $this->usuario = new Usuario($login, $senha, $nome, false, false);
+        $this->usuario = new Usuario($login, $senha, $nome);
         $this->usuarioDao->add($usuario);
         header("index.php");
     }

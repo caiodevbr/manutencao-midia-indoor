@@ -12,13 +12,11 @@ class Usuario {
     private $nome;
     private $ativo;
     private $admin;
-    
-    public function __construct($login, $senha, $nome, $ativo, $admin) {
+
+    public function __construct($login, $senha, $nome) {
         $this->login = $login;
         $this->senha = $senha;
         $this->nome = $nome;
-        $this->ativo = $ativo;
-        $this->admin = $admin;
     }
     
     public function getLogin() {
