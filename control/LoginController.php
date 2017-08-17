@@ -26,13 +26,15 @@ class LoginController {
         $this->usuario = $this->usuarioDao->find($login);
         if ($this->usuario->getSenha() == $senha && $this->usuario->getAtivo()) {
             session_start();
-            $_SESSION['usuario'] = $this->usuario;
+            $_SESSION['usuario'] = $this->usuario->getNome();
             header("home.php");
         }
     }
     
     public function logout() {
-        
+        unset($_SESSION['usuario']);
+        session_destroy();
+        header("index.php");
     }
     
 }

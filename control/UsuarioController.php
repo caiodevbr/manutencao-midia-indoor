@@ -26,6 +26,7 @@ class UsuarioController {
         $nome = $_POST['nome'];
         $this->usuario = new Usuario($login, $senha, $nome, false, false);
         $this->usuarioDao->add($usuario);
+        header("index.php");
     }
     
     public function listUsuario() {

@@ -27,13 +27,22 @@ class NoticiaDao {
         return isset($result);
     }
     
+    public function edit(Noticia $noticia) {
+        $query = "UPDATE NOTICIA SET TAGBOX = '{$noticia->getTag()}' IMGBOX = '{$noticia->getImage()}' "
+                . "TITULO = '{$noticia->getTitle()}' FONTBOX = '{$noticia->getFont()}'"
+                . " DESCRICAO = '{$noticia->getDescricao()}' MAINBOX = '{$noticia->getText()}',"
+                . " INSERCAO = now()) WHERE ID = '{$noticia->getId()}'";
+        $result = pg_query($conn, $query);
+        return isset($result);
+    }
+    
     public function remove(Noticia $noticia) {
         $query = "DELETE FROM NOTICIA WHERE ID = '{$noticia->getId()}'";
         $result = pg_query($conn, $query);
         return isset($result);
     }
     
-    public function lista() {
+    public function listaAll() {
         $list = array();
         $query = "SELECT * FROM NOTICIA";
         $result = pg_query($conn, $query);
