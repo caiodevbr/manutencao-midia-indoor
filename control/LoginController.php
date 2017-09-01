@@ -6,8 +6,7 @@
  * and open the template in the editor.
  */
 
-// include ("../model/Usuario.php");
-include ("./UsuarioController.php");
+include ("UsuarioController.php");
 
 class LoginController {
     private $usuario;
@@ -30,12 +29,12 @@ class LoginController {
         $login = $_POST['login'];
         $senha = $_POST['senha'];
         $this->usuario = $this->userController->findUsuario($login);
-        // eSSE TRECHO TALVEZ NAO ESTEJA EXECUTANDO
         if (($this->usuario->getSenha() == $senha) && ($this->usuario->getAtivo())) {
             session_start();
             $_SESSION['usuario'] = $this->usuario->getNome();
             header("Location:../view/home.php");
         } else {
+            echo "<h1>Usuario nao encontrado</h1>";
             header("Location:../../index.php");
         }
     }

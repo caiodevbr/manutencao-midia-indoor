@@ -12,7 +12,7 @@
  * @author miolivc
  */
 class Noticia {
-    
+
     private $id;
     private $tag;
     private $title;
@@ -21,44 +21,38 @@ class Noticia {
     private $text;
     private $image;
 
-    public function __construct($tag, $title, $font, $descricao, $text, $image) {
-        $this->tag = $tag;
-        $this->title = $title;
-        $this->font = $font;
-        $this->descricao = $descricao;
-        $this->text = $text;
-        $this->image = $image;
+    public function __construct() {
     }
-    
+
     public function getId() {
         return $this->id;
     }
-    
+
     public function setId($id) {
         $this->id = $id;
     }
-    
+
     public function getTag() {
         return $this->tag;
     }
-    
-    
+
+
     public function setTag($tag) {
         $this->tag = $tag;
     }
-    
+
     public function getTitle() {
         return $this->title;
     }
-    
+
     public function setTitle($title) {
         $this->title = $title;
     }
-    
+
     public function getFont() {
         return $this->font;
     }
-    
+
     public function setFont($font) {
         $this->font = $font;
     }
@@ -66,25 +60,25 @@ class Noticia {
     public function getDescricao() {
         return $this->descricao;
     }
-    
+
     public function setDescricao($descricao) {
         $this->descricao = $descricao;
     }
-    
+
     public function getText() {
         return $this->text;
     }
-    
+
     public function setText($text) {
         $this->text = $text;
     }
-    
+
     public function getImage() {
         return $this->image;
     }
-    
+
     public function setImage($image) {
         $this->image = $image;
     }
-            
+
 }

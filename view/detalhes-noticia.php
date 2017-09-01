@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <?php
-    $usuario;
-    if (session_status() !=  PHP_SESSION_ACTIVE) {
+    if (isset($_SESSION['usuario'])) {
         header("index.php");
     }
     $usuario = $_SESSION['usuario'];
     if(isset($_GET['noticia'])) {
-        $noticia = $_GET['noticia'];
+        include("../control/NoticiaController.php");
+        $controler = new NoticiaController();
+        $noticia = $controler->get($_GET['noticia']);
     }
 ?>
 <html>

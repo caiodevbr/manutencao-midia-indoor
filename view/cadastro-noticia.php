@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <?php
-    $usuario;
-    if (session_status() !=  PHP_SESSION_ACTIVE) {
+    if (! isset($_SESSION['usuario'])) {
         header("index.php");
+    } else {
+        $usuario = $_SESSION['usuario'];
     }
-    $usuario = $_SESSION['usuario'];
 ?>
+
 <html>
     <body>
         <h1>Cadastrar Noticia</h1>
-        <form method="post" action="<?php
-                $noticiaController = new NoticiaController();
-                $noticiaController->addNoticia(); ?>">
+        <form method="post" action="">
             <select id='tagBox' name='tagBox' required>
 		<option id='saude' value='saude'>Saúde</option>
 		<option id='saude' value='nutricao'>Nutrição</option>
@@ -20,6 +19,7 @@
 		<option id='academia' value='academia'>Academia</option>
 		<option selected value=''>Selecione o tipo da notícia...</option>
             </select>
+            <input type="hidden" name="acao" value="add"/>
             <input id='imgBox' name='imgBox' type='text' value='' placeholder='URL da imagem' required/>
             <input name='titulo' maxlength='40' id='titleBox' type='text' value='' placeholder='Título' required/>
             <input id='fontBox' name='fontBox' type='text' value='' placeholder='Fonte' required/>

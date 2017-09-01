@@ -30,8 +30,8 @@ class NoticiaController {
         header("view/noticia.php");
     }
 
-    public function removeNoticia(Noticia $noticia) {
-        $this->noticiaDao->remove($noticia);
+    public function removeNoticia($id) {
+        $this->noticiaDao->remove($id);
         header("../view/noticia.php");
     }
 
@@ -50,11 +50,14 @@ class NoticiaController {
     }
 
     public function listaTodas() {
-        return $this->noticiaDao->listAll();
+        return $this->noticiaDao->listaAll();
     }
 
     public function listaTodasTag(string $tag) {
         return $this->noticiaDao->lista($tag);
     }
 
+    public function getNoticia(int $id) {
+        return $this->noticiaDao->get($id);
+    }
 }

@@ -29,7 +29,7 @@ class NoticiaDao {
         return isset($result);
     }
 
-    public function edit(Noticia $noticia) {
+    public function edit($ud) {
         $query = "UPDATE NOTICIA SET TAGBOX = '{$noticia->getTag()}' IMGBOX = '{$noticia->getImage()}' "
                 . "TITULO = '{$noticia->getTitle()}' FONTBOX = '{$noticia->getFont()}'"
                 . " DESCRICAO = '{$noticia->getDescricao()}' MAINBOX = '{$noticia->getText()}') "
@@ -38,8 +38,8 @@ class NoticiaDao {
         return isset($result);
     }
 
-    public function remove(Noticia $noticia) {
-        $query = "DELETE FROM NOTICIA WHERE ID = '{$noticia->getId()}'";
+    public function remove($id) {
+        $query = "DELETE FROM NOTICIA WHERE ID = '{$id}'";
         $result = pg_query($this->conn, $query);
         return isset($result);
     }
@@ -48,18 +48,16 @@ class NoticiaDao {
         $list = array();
         $query = "SELECT * FROM NOTICIA";
         $result = pg_query($this->conn, $query);
-        if(! $result) {
-            while ($row = pg_fetch_array($result)) {
-                $noticia = new Noticia();
-                $noticia->setId($row['id']);
-                $noticia->setTag($row['tagBox']);
-                $noticia->getFont($row['fontBox']);
-                $noticia->getImage($row['imgBox']);
-                $noticia->getTitle($row['titulo']);
-                $noticia->getDescricao($row['descricao']);
-                $noticia->getText($row['mainBox']);
-                $list[] = $noticia;
-            }
+        while ($row = pg_fetch_array($result)) {
+            $noticia = new Noticia();
+            $noticia->setId($row['id']);
+            $noticia->setTag($row['tagBox']);
+            $noticia->setFont($row['fontBox']);
+            $noticia->setImage($row['imgBox']);
+            $noticia->setTitle($row['titulo']);
+            $noticia->setDescricao($row['descricao']);
+            $noticia->setText($row['mainBox']);
+            $list[] = $noticia;
         }
         return $list;
     }
@@ -72,15 +70,33 @@ class NoticiaDao {
                 $noticia = new Noticia();
                 $noticia->setId($row['id']);
                 $noticia->setTag($row['tagBox']);
-                $noticia->getFont($row['fontBox']);
-                $noticia->getImage($row['imgBox']);
-                $noticia->getTitle($row['titulo']);
-                $noticia->getDescricao($row['descricao']);
-                $noticia->getText($row['mainBox']);
+                $noticia->setFont($row['fontBox']);
+                $noticia->setImage($row['imgBox']);
+                $noticia->setTitle($row['titulo']);
+                $noticia->setDescricao($row['descricao']);
+                $noticia->setText($row['mainBox']);
                 $list[] = $noticia;
             }
         }
         return $list;
+    }
+
+    public function get($id) {
+        $query = "SELECT * FROM NOTICIA WHERE ID =".$id.";";
+        $results = pg_query($this->conn, $query);
+        $usuario = $noticia;
+        foreach (pg_fetch_all($results) as $result) {
+            $noticia = new Noticia();
+            $noticia->setId($row['id']);
+            $noticia->setTag($row['tagBox']);
+            $noticia->setFont($row['fontBox']);
+            $noticia->setImage($row['imgBox']);
+            $noticia->setTitle($row['titulo']);
+            $noticia->setDescricao($row['descricao']);
+            $noticia->setText($row['mainBox']);
+            break;
+        }
+        return $noticia;
     }
 
 }

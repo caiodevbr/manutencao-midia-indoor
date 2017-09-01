@@ -44,4 +44,5 @@ class UsuarioController {
         $this->usuarioDao->remove($login);
     }
 }
+
 ?>
