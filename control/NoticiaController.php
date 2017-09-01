@@ -5,18 +5,18 @@
  *
  * @author miolivc
  */
-include("model/Noticia.php");
-include("infra/NoticiaDao.php");
+include("../model/Noticia.php");
+include("../infra/NoticiaDao.php");
 
 class NoticiaController {
     private $noticia;
     private $noticiaDao;
-    
-    public function __clone() {
+
+    public function __construct() {
         $this->noticia = NULL;
         $this->noticiaDao = new NoticiaDao();
     }
-    
+
     public function addNoticia() {
         $tag = $_POST['TAGBOX'];
         $image = $_POST['IMGBOX']; //Tratar p download depois
@@ -29,14 +29,14 @@ class NoticiaController {
         $this->noticia = NULL;
         header("view/noticia.php");
     }
-    
+
     public function removeNoticia(Noticia $noticia) {
         $this->noticiaDao->remove($noticia);
-        header("view/noticia.php");
+        header("../view/noticia.php");
     }
-    
+
     public function editarNoticia() {
-        $id = $_POST['ID']; 
+        $id = $_POST['ID'];
         $tag = $_POST['TAGBOX'];
         $image = $_POST['IMGBOX']; //Tratar p download depois
         $title = $_POST['TITULO'];
@@ -46,15 +46,15 @@ class NoticiaController {
         $this->noticia = new Noticia($tag, $title, $font, $descricao, $text, $image);
         $this->noticia->setId($id);
         $this->noticiaDao->edit($noticia);
-        header("view/noticia.php");
+        header("../view/noticia.php");
     }
-    
+
     public function listaTodas() {
         return $this->noticiaDao->listAll();
     }
-    
+
     public function listaTodasTag(string $tag) {
         return $this->noticiaDao->lista($tag);
     }
-    
+
 }

@@ -9,7 +9,7 @@
 <html>
     <body>
         <h1>Cadastrar Noticia</h1>
-        <form method="post" action="<?php 
+        <form method="post" action="<?php
                 $noticiaController = new NoticiaController();
                 $noticiaController->addNoticia(); ?>">
             <select id='tagBox' name='tagBox' required>

@@ -18,6 +18,6 @@ and open the template in the editor.
             <button type="submit">Entrar</button>
             <button type="reset">Limpar</button>
         </form>
-        <a href="view/cadastro-user.php">Cadastre-se</a>
+        <a href="cadastro-user.php">Cadastre-se</a>
     </body>
 </html>

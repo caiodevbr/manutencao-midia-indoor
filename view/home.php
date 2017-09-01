@@ -1,14 +1,4 @@
 <!DOCTYPE html>
-<?php
-    include_once("../control/UsuarioController.php");
-
-    $usuario;
-    //if (session_status() ==  PHP_SESSION_ACTIVE) {
-    //    header("Location:../index.php");
-    //}
-    //$usuario = $_SESSION['usuario'];
-    $usuario = "miolivc";
-?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -16,15 +6,17 @@
     </head>
     <body>
         <nav>
-            <a href="view/noticia.php">Gerenciar Noticias</a>
+            <a href="noticia.php">Gerenciar Noticias</a>
             <?php
+                include_once("../control/UsuarioController.php");
                 $userController = new UsuarioController();
-                $user = $userController->findUsuario($usuario);
-                if ($user->getAdmin() == true) {
-                    echo "<a href='view/usuarios.php'>Gerenciar Usuarios</a>";
+                $user = $userController->findUsuario('miolivc');
+                echo $user->getAdmin();
+                if ($user->getAdmin() == 0) {
+                    echo "<a href='usuarios.php'>Gerenciar Usuarios</a>";
                 }
             ?>
         </nav>
-        <h1>Bem vindo, <?php echo $usuario; ?></h1>
+        <h1>Bem vindo, <?php echo $user->getNome(); ?></h1>
     </body>
 </html>
